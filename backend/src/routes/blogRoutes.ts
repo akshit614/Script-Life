@@ -1,7 +1,8 @@
-import { PrismaClient } from "@prisma/client/edge";
-import { withAccelerate } from "@prisma/extension-accelerate";
 import { Hono } from "hono";
 import { verify } from "hono/jwt";
+import { PrismaClient } from "@prisma/client/edge";
+import { withAccelerate } from "@prisma/extension-accelerate";
+import { createBlogInput, updateBlogInput } from "@aksh4code/blog-app-common";
 
 export const blogRouter = new Hono<{
 	Bindings: {
@@ -64,6 +65,13 @@ blogRouter.post('/', async (c) => {
     }).$extends(withAccelerate())
 
     const body = await c.req.json()
+    const {success} = createBlogInput.safeParse(body)
+    if (!success) {
+        c.status(411)
+        return c.json({
+          msg : "input formats are incorret"
+        })
+      }
     const authorId = c.get("userId")
     try {
         const blog = await prisma.post.create({
@@ -119,6 +127,13 @@ blogRouter.put('/update', async (c) => {
     }).$extends(withAccelerate())
 
     const body = await c.req.json()
+    const {success} = updateBlogInput.safeParse(body)
+    if (!success) {
+        c.status(411)
+        return c.json({
+          msg : "Inputs formats are incorret"
+        })
+      }
     try {
         const blog = await prisma.post.update({
             where : {
