@@ -1,18 +1,17 @@
 import Auth from "../components/Auth"
 import Quote from "../components/quote"
 
-Auth
 const Signup = () => {
   return (
     <>
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2">
             <div className="flex justify-center ">
                 <div className="w-7/12">
-                    <Auth />
+                    <Auth type="signup"/>
                 </div>
             </div>
-            <div className="invisible md:visible">
-                <Quote />
+            <div className="hidden md:block">
+                <Quote quote={'"You should have some vision to go far in life. That will add some good motivation for doing things"'} />
             </div>
         </div>
     </>
