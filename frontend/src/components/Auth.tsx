@@ -1,25 +1,20 @@
 import { useState } from "react"
 import InputBox from "./InputBox"
 import { SignupInput, SigninInput } from "@aksh4code/blog-app-common"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import axios from "axios"
+import {SERVER_URL} from '../../config'
 
 const Auth = ({type} : { type : "signin" | "signup"}) => {
 
-    // type === "signup" ? (
-        const [postInputs, setPostInputs] = useState<SignupInput>({
-            name : "",
-            email : "",
-            password  :""
-        })
-    // )
-    // :
-    // (const [postInputs, setPostInputs] = useState<SigninInput>({
-    //     name : "",
-    //     email : "",
-    //     password  :""
-    // }))
-    
+    const initialState = 
+        type === "signup" 
+        	? {name : "",email : "", password  :""} 
+            : {email : "", password  :""}
 
+    const [postInputs, setPostInputs] = useState<SignupInput | SigninInput>(initialState)
+    const navigate = useNavigate()
+    
   return (
 
     <div className=" h-screen flex flex-col justify-center">
@@ -35,13 +30,18 @@ const Auth = ({type} : { type : "signin" | "signup"}) => {
                     </div>
                 </div>
                 <div>
-                    <InputBox label={"Username"} onChange={ (e) => {
-                        setPostInputs({
-                            ...postInputs,
-                            name  : e.target.value
-                        })
+                    {
+                        type === "signup" && <InputBox 
+                            label={"Username"} 
+                            onChange={ (e) => {
+                                setPostInputs({
+                                    ...postInputs,
+                                    name  : e.target.value
+                                })
+                            }}
+                            placeholder={"Exapmle12"} />
+
                     }
-                    } placeholder={"Exapmle12"} />
                     <InputBox label={"Email"} onChange={(e) => {
                         setPostInputs({
                             ...postInputs,
@@ -55,7 +55,19 @@ const Auth = ({type} : { type : "signin" | "signup"}) => {
                         })
                     }} placeholder={"12345678"} />
                     <div className="pt-2">
-                        <button className="p-1 w-full bg-slate-900 rounded-lg text-white font-bold text-xl" >{type === "signup" ? "SignUp" : "SignIn" }</button>
+                        <button className="p-1 w-full bg-slate-900 rounded-lg text-white font-bold text-xl" 
+                        onClick={async() => {
+                            try {
+                                const res = await axios.post(`${SERVER_URL}/api/v1/user/${type === 'signup' ? 'signup' : 'signin'}`, postInputs)
+                                const jwt = res.data
+                                console.log(jwt.token)
+                                localStorage.setItem("token" ,jwt.token )
+                                navigate("/blogs")
+                            } catch (error : any) {
+                                alert(`Error while ${type === 'signup' ? 'signup' : 'signin'}`)
+                            }
+                        }} 
+                        >{type === "signup" ? "SignUp" : "SignIn" }</button>
                     </div>
                 </div>
             </div>
