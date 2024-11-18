@@ -42,7 +42,18 @@ blogRouter.get('/bulk', async (c) => {
     console.log("bulk triggered");
     
     try {
-        const blogs = await prisma.post.findMany();
+        const blogs = await prisma.post.findMany({
+            select : {
+                content : true,
+                title :true,
+                id : true,
+                author : {
+                    select : {
+                        name : true
+                    }
+                }
+            }
+        });
         console.log('Fetched blogs:', blogs)
 
         if (!blogs || blogs.length === 0) {
