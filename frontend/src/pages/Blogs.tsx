@@ -15,7 +15,7 @@ const Blogs = () => {
     <div>
         <Appbar />
     <div className="p-10 flex justify-center">
-      <div className="max-w-xl">
+      <div className="max-w-2xl">
       {
         blogs.map(blog => <BlogCard 
           id = {blog.id}
