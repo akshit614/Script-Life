@@ -34,7 +34,7 @@ userRouter.post('/signup', async (c) => {
               }
             })
       const jwtToken = await sign({id:user.id},c.env.JWT_SECRET)
-      return c.json({token : jwtToken})
+      return c.json({token : jwtToken, name : user.name,})
       
     } catch (e) {
       return c.text("Got an error in creating a user" + e)
@@ -68,6 +68,7 @@ userRouter.post('/signin', async (c) => {
     const jwtToken = await sign({id:user.id},c.env.JWT_SECRET)
     return c.json({
         email : user.email,
+        name : user.name,
         passowrd : user.password,
         token : jwtToken
     })
