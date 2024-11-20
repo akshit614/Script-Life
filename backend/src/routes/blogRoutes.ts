@@ -33,44 +33,7 @@ blogRouter.use('/*', async (c, next) => {
     }
 })
 
-// things to do :: Add pagination 
-
-blogRouter.get('/bulk', async (c) => {
-    const prisma = new PrismaClient({
-        datasourceUrl: c.env?.DATABASE_URL,
-    }).$extends(withAccelerate())
-    console.log("bulk triggered");
-    
-    try {
-        const blogs = await prisma.post.findMany({
-            select : {
-                content : true,
-                title :true,
-                id : true,
-                author : {
-                    select : {
-                        name : true
-                    }
-                }
-            }
-        });
-        console.log('Fetched blogs:', blogs)
-
-        if (!blogs || blogs.length === 0) {
-            c.status(404)
-            return c.text("Error while fetching blogs")
-        }
-
-        return c.json ({
-            blogs : blogs
-        })
-    } catch (error) {
-        c.status(500)
-        return c.text("Error while fetching blogs")
-    }
-})
-
-blogRouter.post('/', async (c) => {
+blogRouter.post('/new', async (c) => {
     const prisma = new PrismaClient({
         datasourceUrl: c.env?.DATABASE_URL,
     }).$extends(withAccelerate())
@@ -92,7 +55,7 @@ blogRouter.post('/', async (c) => {
                 aurhorId: authorId
             }
         })
-
+        c.status(200)
         return c.json({
             id : blog.id
         })
@@ -102,6 +65,41 @@ blogRouter.post('/', async (c) => {
         return c.json({msg : "some error happend in ceating blog"})
     }
 })
+// things to do :: Add pagination 
+
+blogRouter.get('/bulk', async (c) => {
+    const prisma = new PrismaClient({
+        datasourceUrl: c.env?.DATABASE_URL,
+    }).$extends(withAccelerate())
+        
+    try {
+        const blogs = await prisma.post.findMany({
+            select : {
+                content : true,
+                title :true,
+                id : true,
+                author : {
+                    select : {
+                        name : true
+                    }
+                }
+            }
+        });
+        
+        if (!blogs || blogs.length === 0) {
+            c.status(404)
+            return c.text("Error while fetching blogs")
+        }
+
+        return c.json ({
+            blogs : blogs
+        })
+    } catch (error) {
+        c.status(500)
+        return c.text("Error while fetching blogs")
+    }
+})
+
 
 blogRouter.get('/:id', async (c) => {
     const prisma = new PrismaClient({
