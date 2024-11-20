@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom"
 
 const Appbar = () => {
+  const name = localStorage.getItem("userName") || "A"
+
   return (
     <div className="flex justify-between border-b px-5 sm:px-10 items-center p-4">
       <Link to={"/blogs"} className="cursor-pointer">
@@ -20,7 +22,7 @@ const Appbar = () => {
           </Link>
         </div>
         <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-400 rounded-full ">
-              <span className="font-bold text-2xl text-black ">A</span>
+              <span className="font-bold text-2xl text-black ">{name[0]}</span>
         </div>   
       </div> 
     </div>

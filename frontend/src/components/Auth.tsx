@@ -59,8 +59,9 @@ const Auth = ({type} : { type : "signin" | "signup"}) => {
                         onClick={async() => {
                             try {
                                 const res = await axios.post(`${SERVER_URL}/api/v1/user/${type === 'signup' ? 'signup' : 'signin'}`, postInputs)
-                                const jwt = res.data
-                                localStorage.setItem("token" ,jwt.token )
+                                const data = res.data
+                                localStorage.setItem("token" ,data.token )
+                                localStorage.setItem("userName", data.name)
                                 navigate("/blogs")
                             } catch (error : any) {
                                 alert(`Error while ${type === 'signup' ? 'signup' : 'signin'}`)
