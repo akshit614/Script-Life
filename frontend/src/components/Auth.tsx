@@ -60,7 +60,6 @@ const Auth = ({type} : { type : "signin" | "signup"}) => {
                             try {
                                 const res = await axios.post(`${SERVER_URL}/api/v1/user/${type === 'signup' ? 'signup' : 'signin'}`, postInputs)
                                 const jwt = res.data
-                                console.log(jwt.token)
                                 localStorage.setItem("token" ,jwt.token )
                                 navigate("/blogs")
                             } catch (error : any) {

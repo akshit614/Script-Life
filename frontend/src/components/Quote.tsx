@@ -1,8 +1,9 @@
 interface quoteType {
-    quote: string; 
+    quote: string,
+    name : string
 }
 
-const Quote = ({quote} : quoteType) => {
+const Quote = ({quote, name} : quoteType) => {
   return (
     <>
         <div className="bg-gray-300 h-screen flex justify-center flex-col ">
@@ -12,10 +13,10 @@ const Quote = ({quote} : quoteType) => {
                     {quote}
                     </div>
                     <div className="pt-6 max-w-md">
-                        - Author saab 
+                        - {name} 
                     </div>
                     <div className="text-light text-gray-600 max-w-md">
-                        CEO dukaan
+                        
                     </div>
                 </div>
             </div>
