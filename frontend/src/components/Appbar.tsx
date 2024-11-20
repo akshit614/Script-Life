@@ -5,7 +5,7 @@ const Appbar = () => {
     <div className="flex justify-between border-b px-5 sm:px-10 items-center p-4">
       <Link to={"/blogs"} className="cursor-pointer">
         <div className="font-bold text-4xl items-center">
-          BlogApp
+          ScriptLife
         </div>
       </Link>
       <div className="flex items-center gap-4">

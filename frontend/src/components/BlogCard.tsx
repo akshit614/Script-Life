@@ -20,7 +20,7 @@ const BlogCard = ({id,author,title,content,publishedDate} : BlogCardProps) => {
         {author} . <div className="pl-1 text-slate-400">{publishedDate}</div>
       </div>
       <div className="pl-2 pt-2">
-      <div className="font-bold text-xl"> 
+      <div className="font-bold text-2xl"> 
         {title}
       </div>
       <div className="text-slate-500">
