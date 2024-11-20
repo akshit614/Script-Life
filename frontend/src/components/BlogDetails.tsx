@@ -1,5 +1,3 @@
-import Appbar from "./Appbar"
-
 interface Blog {
     content: string,
     title: string,
@@ -12,11 +10,10 @@ interface Blog {
 const BlogDetails = ({blog} : {blog : Blog} ) => {
   return (
     <div>
-        <Appbar />
         <div className="flex justify-center">
             <div className="grid grid-cols-12 p-8 max-w-4xl">
                 <div className="col-span-8 px-6">
-                    <div className="text-3xl font-extrabold">
+                    <div className="text-4xl font-extrabold">
                         {blog.title} 
                     </div> 
                     <div className="text-slate-600 pt-1">
@@ -37,12 +34,10 @@ const BlogDetails = ({blog} : {blog : Blog} ) => {
                             </div>
                         </div>
                         <div className="justify-center items-center">
-                            <div className="font-bold text-xl">
+                            <div className="font-semibold text-xl">
                                 {blog.author.name || "Anonymous"}
                             </div>
-                            <div className=" text-slate-800">
-                                Random pharse to grab user attraction
-                            </div>
+                            
                         </div>
                     </div>
                        
