@@ -1,5 +1,5 @@
 import Auth from "../components/Auth"
-import Quote from "../components/quote"
+import Quote from "../components/Quote"
 
 const Signup = () => {
   return (
@@ -11,7 +11,7 @@ const Signup = () => {
                 </div>
             </div>
             <div className="hidden md:block">
-                <Quote quote={'"You should have some vision to go far in life. That will add some good motivation for doing things"'} />
+                <Quote name={"Nelson Mandela"} quote={'"The greatest glory in living lies not in never falling, but in rising every time we fall."'} />
             </div>
         </div>
     </>

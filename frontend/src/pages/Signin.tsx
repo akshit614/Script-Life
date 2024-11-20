@@ -1,4 +1,4 @@
-import Quote from "../components/quote"
+import Quote from "../components/Quote"
 import Auth from "../components/Auth"
 
 const Signin = () => {
@@ -10,7 +10,7 @@ const Signin = () => {
           </div>
       </div>
       <div className="invisible md:visible">
-          <Quote  quote={'"Quote from my side and it should be above of your head. and what you are doing awiht ksadba adasdjhajs dasdh asd dfgsdfgdsf fdf"'} />
+          <Quote name="Steve Jobs" quote={"Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma - which is living with the results of other people's thinking."} />
       </div>
     </div>
   )
