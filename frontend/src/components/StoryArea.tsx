@@ -1,7 +1,7 @@
 import axios from "axios"
 import { SERVER_URL } from "../../config"
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const StoryArea = () => {
     const [title, setTitle] = useState("")
@@ -28,7 +28,7 @@ const StoryArea = () => {
                         setContent(e.target.value)
                     }}></textarea>
                 </div>
-                <div className="flex items-center justify-between px-3 py-2">
+                <div className="flex items-center justify-left px-3 py-2 gap-3">
                     <button onClick={async() => {
                         const res = await axios.post(`${SERVER_URL}/api/v1/blog/new`, 
                             {
@@ -43,9 +43,12 @@ const StoryArea = () => {
                         
                         navigate(`/blog/${res.data.id}`)
                     }} 
-                     type="button" className="mx-2 inline-flex items-center py-2.5 px-4 text-sm font-bold text-center text-white bg-blue-800 rounded-full hover:shadow-lg hover:bg-blue-700 hover:shadow-sky-300 focus:ring-4 focus:ring-blue-200">
+                     type="button" className="ml-4 inline-flex items-center py-2.5 px-4 text-sm font-bold text-center text-white bg-blue-800 rounded-full hover:shadow-md hover:bg-blue-700 hover:shadow-sky-300 focus:ring-4 focus:ring-blue-200">
                         Post Blog
                     </button>
+                    <Link to={'/blogs'}>
+                        <button type="button" className="text-white bg-red-600 font-bold rounded-full text-sm px-5 py-2.5 hover:shadow-md hover:shadow-red-300 text-center">Cancel</button>
+                    </Link>
                 </div>
             </div>
         </div>
