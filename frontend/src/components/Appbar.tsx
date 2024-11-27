@@ -10,7 +10,7 @@ const Appbar = () => {
           ScriptLife
         </div>
       </Link>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3">
         <Link to={"/blogs"} className="cursor-pointer">
           <div className="flex flex-col justify-center font-bold ">
             Home
@@ -18,11 +18,16 @@ const Appbar = () => {
         </Link>
         <div> 
           <Link to={"/blog/publish"}>
-          <button type="button" className=" text-white font-bold bg-green-600 hover:bg-green-500 rounded-full text-sm px-5 py-2.5 text-center">New Blog</button>
+          <button type="button" className=" text-white bg-gradient-to-br from-black to-slate-500 font-bold rounded-full text-md px-5 py-2 text-center">New Blog</button>
           </Link>
         </div>
-        <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-400 rounded-full ">
-              <span className="font-bold text-2xl text-black ">{name[0]}</span>
+        <div> 
+          <Link to={"/"}>
+          <button type="button" className="text-white bg-gradient-to-br from-black to-slate-500 font-bold rounded-full text-md px-5 py-2 text-center">Logout</button>
+          </Link>
+        </div>
+        <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gradient-to-br from-black to-slate-500 rounded-full ">
+              <span className="font-bold text-2xl text-white ">{name[0].toUpperCase()}</span>
         </div>   
       </div> 
     </div>
