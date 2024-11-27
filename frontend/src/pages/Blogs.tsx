@@ -26,7 +26,7 @@ const Blogs = () => {
         </div>
       {
         !loading ?
-        blogs.map(blog => <BlogCard 
+        blogs.slice().reverse().map(blog => <BlogCard 
           id = {blog.id}
           author={blog.author.name  || "Anonymous" } 
           title={blog.title} 
