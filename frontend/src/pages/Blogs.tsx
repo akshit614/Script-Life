@@ -1,7 +1,7 @@
+import { Link } from "react-router-dom"
 import BlogCard from "../components/BlogCard"
 import Navbar from "../components/Navbar"
 import { useBlogs } from "../hooks"
-
 
 const Blogs = () => {
 
@@ -14,8 +14,16 @@ const Blogs = () => {
   return (
     <div>
         <Navbar />
-    <div className="p-10 flex justify-center ">
+    <div className="p-4 flex flex-col justify-center items-center">
+      <div className="max-w-2xl w-full flex justify-center py-3">
+        <Link to={'/blog/publish'}> Get started 
+        <button type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900 font-semibold rounded-lg text-lg px-5 py-2 mx-2">Write a Blog</button>
+        </Link>
+      </div>
       <div className="max-w-2xl w-full">
+        <div className="items-center">
+          <p className="text-3xl pb-5 pt-2 md:text-5xl md:pb-10 md:pt-5 font-bold">Read previous Blogs :)</p>
+        </div>
       {
         !loading ?
         blogs.map(blog => <BlogCard 
