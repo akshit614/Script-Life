@@ -1,10 +1,10 @@
-import Appbar from "../components/Appbar"
+import Navbar from "../components/Navbar"
 import StoryArea from "../components/StoryArea"
 
 const Publish = () => {
   return (
     <div >
-        <Appbar />
+        <Navbar />
         <StoryArea />
     </div>
   )

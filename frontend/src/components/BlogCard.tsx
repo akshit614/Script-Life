@@ -17,8 +17,8 @@ const BlogCard = ({
 }: BlogCardProps) => {
   return (
     <Link to={`/blog/${id}`}>
-      <div className=" border-b border-slate-300 ">
-        <div className="hover:shadow-md hover:shadow-slate-500 cursor-pointer rounded-lg py-3">
+      <div className=" border-b border-slate-300 py-2 ">
+        <div className="hover:shadow-md hover:shadow-slate-500 cursor-pointer rounded-lg  transition-all duration-700 hover:scale-110 hover:bg-gray-100 py-2">
           <div className="flex items-center">
             <div className="relative inline-flex  items-center justify-center w-6 h-6 overflow-hidden bg-gray-400 rounded-full mx-2">
               <span className="font-bold text-lg text-black ">{author[0]}</span>

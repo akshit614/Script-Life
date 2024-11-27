@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useBlog } from "../hooks";
 import BlogDetails from "../components/BlogDetails";
-import Appbar from "../components/Appbar";
+import Navbar from "../components/Navbar";
 
 const Blog = () => {
   const { id } = useParams();
@@ -11,7 +11,7 @@ const Blog = () => {
 
   return (
     <div>
-      <Appbar />
+      <Navbar />
       {!loading && blog ? <BlogDetails blog={blog} /> : <MiniSkeleton />}
     </div>
   );

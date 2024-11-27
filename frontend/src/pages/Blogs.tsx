@@ -1,5 +1,5 @@
-import Appbar from "../components/Appbar"
 import BlogCard from "../components/BlogCard"
+import Navbar from "../components/Navbar"
 import { useBlogs } from "../hooks"
 
 
@@ -13,7 +13,7 @@ const Blogs = () => {
 
   return (
     <div>
-        <Appbar />
+        <Navbar />
     <div className="p-10 flex justify-center ">
       <div className="max-w-2xl w-full">
       {
