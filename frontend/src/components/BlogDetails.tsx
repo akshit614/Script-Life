@@ -13,18 +13,18 @@ const BlogDetails = ({ blog }: { blog: Blog }) => {
   return (
     <div>
       <div className="flex justify-center">
-        <div className="grid grid-cols-12 p-8 max-w-4xl">
-          <div className="col-span-8 px-6">
+        <div className="md:grid md:grid-cols-12 p-8 md:max-w-4xl">
+          <div className="md:col-span-8 px-6">
             <Link to={'/blogs'}>
                 <div className="text-3xl ">
                 <FaArrowCircleLeft />
                 </div>
             </Link>
-            <div className="text-4xl font-extrabold">{blog.title}</div>
+            <div className="text-2xl md:text-4xl font-extrabold">{blog.title}</div>
             <div className="text-slate-600 pt-1">Posted on 2 Nov 2024</div>
             <div className="text-gray-800 pt-4">{blog.content}</div>
           </div>
-          <div className="col-span-4  px-6">
+          <div className="p-8 md:col-span-4  md:px-6">
             <div className="pl-2 text-slate-700">Author</div>
             <div className="flex">
               <div className="flex flex-col justify-center ">
