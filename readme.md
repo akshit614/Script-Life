@@ -94,7 +94,6 @@ These packages are published to **npm** and consumed in both frontend and backen
 
 ---
 
-## 🧪 How to Run Locally
 
 ### 🐙 Clone the repository
 
@@ -130,3 +129,6 @@ npm install
 ### 🔧 Environment Setup
 
 Create `.env` files for backend and frontend with appropriate secrets (DB URL, etc.).
+
+- Then run frontend and backend and enjoy the experience
+
