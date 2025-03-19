@@ -3,12 +3,7 @@
 
 ScriptLife is a modern full-stack web application for uploading, reading, and managing blogs. Built with Cloudflare Workers for lightning-fast backend performance and React + TypeScript + Tailwind for a responsive and user-friendly frontend, uses custom-deployed npm packages for clean code reuse.
 
-## 🚀 Live Deployment
 
-- **Frontend**: [Vercel](https://vercel.com/)
-- **Backend**: [Cloudflare Workers](https://workers.cloudflare.com/)
-
----
 
 ## ✨ Features
 
@@ -20,6 +15,13 @@ ScriptLife is a modern full-stack web application for uploading, reading, and ma
 - ⚡ Superfast backend with Cloudflare Workers and Hono.js
 - 🗃️ PostgreSQL database using Neon & Prisma ORM
 - ✔  Middlewares for auhtorization using jwt tokens
+---
+
+## 🚀 Live Deployment
+
+- **Frontend**: [Vercel](https://vercel.com/)
+- **Backend**: [Cloudflare Workers](https://workers.cloudflare.com/)
+
 ---
 
 ## 🛠️ Tech Stack
